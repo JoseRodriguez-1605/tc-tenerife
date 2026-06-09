@@ -1,0 +1,42 @@
+package com.tctenerife.repository;
+ 
+import com.tctenerife.entity.Vehiculo;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+ 
+import java.util.List;
+import java.util.Optional;
+ 
+/**
+ * Repositorio para la entidad Vehiculo
+ */
+@Repository
+public interface VehiculoRepository extends JpaRepository<Vehiculo, String> {
+    
+    // Buscar por chassis
+    Optional<Vehiculo> findByChassis(String chassis);
+    
+    // Buscar por marca
+    List<Vehiculo> findByMarca(String marca);
+    
+    // Buscar por modelo
+    List<Vehiculo> findByModelo(String modelo);
+    
+    // Buscar por buque
+    List<Vehiculo> findByBuque(String buque);
+    
+    // Buscar por criterios múltiples
+    @Query("SELECT v FROM Vehiculo v WHERE " +
+           "(:chassis IS NULL OR v.chassis LIKE %:chassis%) AND " +
+           "(:marca IS NULL OR v.marca LIKE %:marca%) AND " +
+           "(:modelo IS NULL OR v.modelo LIKE %:modelo%) AND " +
+           "(:buque IS NULL OR v.buque LIKE %:buque%)")
+    List<Vehiculo> findByMultipleCriteria(
+            @Param("chassis") String chassis,
+            @Param("marca") String marca,
+            @Param("modelo") String modelo,
+            @Param("buque") String buque
+    );
+}

@@ -1,13 +1,13 @@
 package com.tctenerife.dto;
-
+ 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.time.LocalDateTime;
-
-// Respuesta genérica estándar para toda la API (éxito, mensaje, datos, timestamp)
-
+ 
+/**
+ * DTO genérico para respuestas API
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

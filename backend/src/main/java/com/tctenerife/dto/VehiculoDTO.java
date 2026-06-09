@@ -5,12 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
  
 /**
- * DTO para login
+ * DTO para vehículos del catálogo
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginRequest {
-    private String email;
-    private String password;
+public class VehiculoDTO {
+    private String chassis;
+    private String marca;
+    private String modelo;
+    private String buque;
 }
