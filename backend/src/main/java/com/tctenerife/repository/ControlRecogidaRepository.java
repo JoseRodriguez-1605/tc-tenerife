@@ -22,9 +22,7 @@ public interface ControlRecogidaRepository extends JpaRepository<ControlRecogida
     // Buscar por empresa
     List<ControlRecogida> findByEmpresa(String empresa);
     
-    // Buscar por usuario
-    List<ControlRecogida> findByUsuarioId(Long usuarioId);
-    
+
     // Buscar por estado
     List<ControlRecogida> findByEstado(ControlRecogida.Estado estado);
     

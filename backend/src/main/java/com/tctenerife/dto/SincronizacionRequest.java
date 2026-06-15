@@ -27,7 +27,6 @@ public class SincronizacionRequest {
         private String modelo;
         private String buque;
         private String matricula;
-        private Integer idBarco;
         private String accion; // CREAR, ACTUALIZAR
         private Long timestamp;
     }

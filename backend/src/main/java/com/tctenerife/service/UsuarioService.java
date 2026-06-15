@@ -2,8 +2,13 @@ package com.tctenerife.service;
  
 import com.tctenerife.dto.*;
 import com.tctenerife.entity.Usuario;
+import com.tctenerife.entity.Vehiculo;
 import com.tctenerife.repository.UsuarioRepository;
+import com.tctenerife.repository.VehiculoRepository;
 import com.tctenerife.config.JwtTokenProvider;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,12 +29,11 @@ public class UsuarioService {
     
     @Autowired
     private UsuarioRepository usuarioRepository;
+
     
     @Autowired
     private PasswordEncoder passwordEncoder;
-    
-    @Autowired
-    private JwtTokenProvider jwtTokenProvider;
+
     
     /**
      * Login de usuario

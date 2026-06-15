@@ -39,7 +39,7 @@ public class RecogidaController {
             Long usuarioId = jwtTokenProvider.getUserIdFromToken(
                     authentication.getCredentials().toString());
             
-            RecogidaDTO response = recogidaService.registrarRecogida(request, usuarioId);
+            RecogidaDTO response = recogidaService.registrar(request, usuarioId);
             
             return ResponseEntity.ok(new ApiResponse<>(
                     true,
