@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class RecogidaDTO {
     private Integer id;
-    private Integer ficha;
+    private Integer registro;
     private String empresa;
     private String vin;
     private String marca;

@@ -14,5 +14,5 @@ public class VehiculoDTO {
     private String chassis;
     private String marca;
     private String modelo;
-    private String buque;
+    private String buque; //quitar buque
 }

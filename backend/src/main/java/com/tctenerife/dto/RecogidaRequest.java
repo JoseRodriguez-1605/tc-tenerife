@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RecogidaRequest {
-    private Integer ficha;
+    private Integer registro;
     private String empresa;
     private String vin;
     private String marca;

@@ -52,7 +52,7 @@ public class RecogidaService {
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
         
         ControlRecogida recogida = new ControlRecogida();
-        recogida.setFicha(request.getFicha());
+        recogida.setRegistro(request.getRegistro());
         recogida.setEmpresa(request.getEmpresa());
         recogida.setVin(request.getVin().toUpperCase());
         recogida.setMarca(request.getMarca());
@@ -108,7 +108,7 @@ public class RecogidaService {
     /**
      * Buscar recogidas por múltiples criterios
      */
-    public List<RecogidaDTO> buscar(String vin, String empresa, String marca, String modelo, String estado) {
+    public List<RecogidaDTO> buscar(String vin, String empresa, String marca, String buque, String modelo, String estado) {
         ControlRecogida.Estado estadoEnum = null;
         if (estado != null && !estado.isEmpty()) {
             try {
@@ -122,6 +122,7 @@ public class RecogidaService {
                 vin != null ? vin.toUpperCase() : null,
                 empresa,
                 marca,
+                buque,
                 modelo,
                 estadoEnum
         ).stream().map(this::convertToDTO).collect(Collectors.toList());
@@ -188,7 +189,7 @@ public class RecogidaService {
         Usuario usuario = usuarioRepository.findById(usuarioId)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
         
-        recogida.setFicha(request.getFicha());
+        recogida.setRegistro(request.getRegistro());
         recogida.setEmpresa(request.getEmpresa());
         recogida.setMarca(request.getMarca());
         recogida.setModelo(request.getModelo());
@@ -284,7 +285,7 @@ public class RecogidaService {
     private RecogidaDTO convertToDTO(ControlRecogida recogida) {
         return new RecogidaDTO(
                 recogida.getId(),
-                recogida.getFicha(),
+                recogida.getRegistro(),
                 recogida.getEmpresa(),
                 recogida.getVin(),
                 recogida.getMarca(),

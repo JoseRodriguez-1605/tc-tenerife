@@ -50,12 +50,14 @@ public interface ControlRecogidaRepository extends JpaRepository<ControlRecogida
            "(:vin IS NULL OR cr.vin LIKE %:vin%) AND " +
            "(:empresa IS NULL OR cr.empresa LIKE %:empresa%) AND " +
            "(:marca IS NULL OR cr.marca LIKE %:marca%) AND " +
+           "(:buque IS NULL OR cr.buque LIKE %:buque%) AND " +
            "(:modelo IS NULL OR cr.modelo LIKE %:modelo%) AND " +
            "(:estado IS NULL OR cr.estado = :estado)")
     List<ControlRecogida> findByMultipleCriteria(
             @Param("vin") String vin,
             @Param("empresa") String empresa,
             @Param("marca") String marca,
+            @Param("buque") String buque,
             @Param("modelo") String modelo,
             @Param("estado") ControlRecogida.Estado estado
     );

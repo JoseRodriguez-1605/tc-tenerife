@@ -117,13 +117,14 @@ public class RecogidaController {
             @RequestParam(required = false) String vin,
             @RequestParam(required = false) String empresa,
             @RequestParam(required = false) String marca,
+            @RequestParam(required = false) String buque,
             @RequestParam(required = false) String modelo,
             @RequestParam(required = false) String estado) {
         try {
             List<RecogidaDTO> response;
             
-            if (vin != null || empresa != null || marca != null || modelo != null || estado != null) {
-                response = recogidaService.buscar(vin, empresa, marca, modelo, estado);
+            if (vin != null || empresa != null || marca != null || buque != null || modelo != null || estado != null) {
+                response = recogidaService.buscar(vin, empresa, marca, buque, modelo, estado);
             } else {
                 response = recogidaService.listarTodas();
             }

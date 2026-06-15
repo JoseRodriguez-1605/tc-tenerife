@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table(name = "control_recogida", indexes = {
-    @Index(name = "idx_ficha", columnList = "ficha"),
+    @Index(name = "idx_registro", columnList = "registro"),
     @Index(name = "idx_empresa", columnList = "empresa"),
     @Index(name = "idx_vin", columnList = "vin", unique = true),
     @Index(name = "idx_estado", columnList = "estado"),
@@ -27,8 +27,8 @@ public class ControlRecogida {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @Column(nullable = false)
-    private Integer ficha;
+    @Column(nullable = false, name = "registro")
+    private Integer registro;
     
     @Column(nullable = false, length = 100)
     private String empresa;

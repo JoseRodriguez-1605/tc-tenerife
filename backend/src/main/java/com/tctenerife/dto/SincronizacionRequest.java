@@ -20,7 +20,7 @@ public class SincronizacionRequest {
     @AllArgsConstructor
     public static class RecogidaData {
         private Integer id;
-        private Integer ficha;
+        private Integer registro;
         private String empresa;
         private String vin;
         private String marca;

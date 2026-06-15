@@ -71,7 +71,7 @@ export const getCurrentUser = () => {
 const mockRecogidas = [
   {
     id: 1,
-    ficha: 12345,
+    registro: 12345,
     empresa: 'TRANSPORTES ABC',
     vin: '1HGBH41JXMN109186',
     marca: 'Honda',
@@ -85,7 +85,7 @@ const mockRecogidas = [
   },
   {
     id: 2,
-    ficha: 12346,
+    registro: 12346,
     empresa: 'TRANSPORTES XYZ',
     vin: '1HGBH41JXMN109187',
     marca: 'Toyota',
@@ -99,7 +99,7 @@ const mockRecogidas = [
   },
   {
     id: 3,
-    ficha: 12347,
+    registro: 12347,
     empresa: 'LOGISTICA CANARIA',
     vin: '1HGBH41JXMN109188',
     marca: 'Ford',
@@ -126,6 +126,12 @@ export const listarRecogidas = async (filters = {}) => {
   if (filters.empresa) {
     resultado = resultado.filter(r => r.empresa.toUpperCase().includes(filters.empresa.toUpperCase()));
   }
+  if (filters.marca) {
+    resultado = resultado.filter(r => r.marca.toUpperCase().includes(filters.marca.toUpperCase()));
+  }
+  if (filters.buque) {
+    resultado = resultado.filter(r => r.buque.toUpperCase().includes(filters.buque.toUpperCase()));
+  }
   return resultado;
 };
 
@@ -148,6 +154,7 @@ export const crearRecogida = async (recogidaData) => {
   const usuario = getCurrentUser();
   const newRecogida = {
     id: mockRecogidas.length + 1,
+    registro: recogidaData.registro || mockRecogidas.length + 1,
     ...recogidaData,
     fechaHora: new Date().toISOString(),
     estado: 'ENTREGADO',
