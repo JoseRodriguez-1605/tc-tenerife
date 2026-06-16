@@ -59,11 +59,11 @@ public class UsuarioService {
     
     /**
      * Generar token JWT
-     */
+    
     public String generarToken(UsuarioDTO usuario) {
         return jwtTokenProvider.generateToken(usuario.getId(), usuario.getEmail(), usuario.getRol());
     }
-    
+     */
     /**
      * Crear nuevo usuario (solo ADMIN)
      */
