@@ -2,7 +2,7 @@ package com.tctenerife.controller;
  
 import com.tctenerife.dto.*;
 import com.tctenerife.service.RecogidaService;
-import com.tctenerife.config.JwtTokenProvider;
+//import com.tctenerife.config.JwtTokenProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +25,7 @@ public class RecogidaController {
     private RecogidaService recogidaService;
     
     @Autowired
-    private JwtTokenProvider jwtTokenProvider;
+   // private JwtTokenProvider jwtTokenProvider;
     
     /**
      * POST /api/recogidas
@@ -37,7 +37,7 @@ public class RecogidaController {
             Authentication authentication) {
         try {
             Long usuarioId = jwtTokenProvider.getUserIdFromToken(
-                    authentication.getCredentials().toString());
+                    authentication.getCredentials().toString()); 
             
             RecogidaDTO response = recogidaService.registrar(request, usuarioId);
             

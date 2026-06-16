@@ -35,8 +35,6 @@ public class RecogidaService {
     @Autowired
     private UsuarioRepository usuarioRepository;
     
-    private final ObjectMapper objectMapper = new ObjectMapper();
-    
     /**
      * Registrar nueva recogida de vehículo
      */

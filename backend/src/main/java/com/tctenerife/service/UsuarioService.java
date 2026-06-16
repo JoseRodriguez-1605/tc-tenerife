@@ -5,7 +5,7 @@ import com.tctenerife.entity.Usuario;
 import com.tctenerife.entity.Vehiculo;
 import com.tctenerife.repository.UsuarioRepository;
 import com.tctenerife.repository.VehiculoRepository;
-import com.tctenerife.config.JwtTokenProvider;
+//import com.tctenerife.config.JwtTokenProvider;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
